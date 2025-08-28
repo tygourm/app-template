@@ -1,0 +1,22 @@
+services:
+  frontend:
+    image: app-frontend:0.0.0
+    build:
+      context: ..
+      dockerfile: docker/frontend/Dockerfile
+    ports:
+      - 3000:80
+    depends_on:
+      - backend
+
+  backend:
+    image: app-backend:0.0.0
+    build:
+      context: ..
+      dockerfile: docker/backend/Dockerfile
+    ports:
+      - 8000:8000
+    environment:
+      HOST: 0.0.0.0
+      WORKERS: 1
+      LOGS_LEVEL: INFO

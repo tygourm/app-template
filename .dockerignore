@@ -1,0 +1,6 @@
+backend/logs/
+backend/src/**/__pycache__/
+backend/static/site/
+frontend/dist/
+frontend/node_modules/
+frontend/stats.html

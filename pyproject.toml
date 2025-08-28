@@ -1,0 +1,24 @@
+[project]
+name = "app-template"
+version = "0.0.0"
+requires-python = ">=3.13"
+
+[dependency-groups]
+docs = ["mkdocs-material"]
+lint = ["ruff"]
+test = ["pytest-playwright", "testcontainers"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812", # missing-trailing-comma
+    "D100",   # undocumented-public-module
+    "D101",   # undocumented-public-class
+    "D103",   # undocumented-public-function
+    "D203",   # incorrect-blank-line-before-class
+    "D213",   # multi-line-summary-second-line
+    "INP001", # implicit-namespace-package
+]
+
+[tool.uv.workspace]
+members = ["backend"]

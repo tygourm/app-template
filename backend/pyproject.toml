@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "backend"
+version = "0.0.0"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]",
+    "pydantic-settings",
+    "sqlmodel>=0.0.24",
+    "typer",
+]
+
+[project.scripts]
+api = "backend.api:main"
+cli = "backend.cli:main"
+
+[dependency-groups]
+data = ["alembic"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/backend"]

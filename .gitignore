@@ -1,0 +1,9 @@
+.cache/
+.venv/
+dist/
+node_modules/
+backend/logs/
+backend/src/**/__pycache__/
+backend/static/site/
+frontend/.tanstack/
+frontend/stats.html
