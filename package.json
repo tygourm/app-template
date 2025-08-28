@@ -1,6 +1,6 @@
 {
   "name": "app-template",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "mkdocs build -d backend/static/site && cd frontend && pnpm build",
     "lint": "ruff check --no-cache && prettier -c . && cd frontend && pnpm eslint",

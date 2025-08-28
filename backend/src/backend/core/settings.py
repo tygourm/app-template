@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
     app_debug: bool = False
     app_title: str = "App Template"
-    app_version: str = "0.0.0"
+    app_version: str = "1.0.0"
 
     logs_format: str = "%(asctime)s %(levelname)s [%(name)s] %(message)s"
     logs_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"

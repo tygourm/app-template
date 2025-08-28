@@ -55,13 +55,13 @@ pnpm start
 Build the backend Docker image.
 
 ```bash
-docker build -t app-backend:0.0.0 -f docker/backend/Dockerfile .
+docker build -t app-backend:1.0.0 -f docker/backend/Dockerfile .
 ```
 
 Build the frontend Docker image.
 
 ```bash
-docker build -t app-frontend:0.0.0 -f docker/frontend/Dockerfile .
+docker build -t app-frontend:1.0.0 -f docker/frontend/Dockerfile .
 ```
 
 Deploy all the services.

@@ -46,7 +46,7 @@ wheels = [
 
 [[package]]
 name = "app-template"
-version = "0.0.0"
+version = "1.0.0"
 source = { virtual = "." }
 
 [package.dev-dependencies]
@@ -82,7 +82,7 @@ wheels = [
 
 [[package]]
 name = "backend"
-version = "0.0.0"
+version = "1.0.0"
 source = { editable = "backend" }
 dependencies = [
     { name = "fastapi", extra = ["standard"] },
@@ -100,7 +100,7 @@ data = [
 requires-dist = [
     { name = "fastapi", extras = ["standard"] },
     { name = "pydantic-settings" },
-    { name = "sqlmodel", specifier = ">=0.0.24" },
+    { name = "sqlmodel" },
     { name = "typer" },
 ]
 
