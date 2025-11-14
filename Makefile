@@ -18,6 +18,18 @@ serve: build
 	cd server && uv run server & \
 	wait
 
+docker_build:
+	docker build -f docker/client/Dockerfile -t app-client:0.0.0 .
+	docker build -f docker/server/Dockerfile -t app-server:0.0.0 .
+
+docker_serve: docker_build
+	docker compose -f docker/docker-compose.yaml up -d
+	docker compose -f docker/docker-compose.yaml logs -f
+
+docker_clean:
+	docker compose -f docker/docker-compose.yaml down
+	docker system prune -f
+
 write: init
 	pnpm prettier -w .
 	uv run ruff format --no-cache

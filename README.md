@@ -32,6 +32,26 @@ Start the application in production mode.
 make serve
 ```
 
+## Deployment
+
+Build the Docker images.
+
+```bash
+make docker_build
+```
+
+Start the deployment.
+
+```bash
+make docker_serve
+```
+
+Clean up the deployment.
+
+```bash
+make docker_clean
+```
+
 ## Miscellaneous
 
 ### Format / Lint
