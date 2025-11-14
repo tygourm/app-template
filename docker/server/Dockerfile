@@ -39,6 +39,8 @@ RUN groupadd $GROUP && \
     useradd -m -g $GROUP -u 1000 $USER
 WORKDIR /home/$USER/app
 
+COPY server/static static
+
 COPY --from=installer /wheels /wheels
 RUN pip install /wheels/* --no-deps --no-cache-dir && \
     rm -rf /wheels
