@@ -5,14 +5,12 @@ ARG PYTHON=python:3.12-slim-bookworm
 
 ### Base stage ###
 FROM $PYTHON AS base
-RUN pip install uv uv_build
+RUN pip install uv
 WORKDIR /app
 
 
 ### Install stage ###
 FROM base AS installer
-RUN pip install uv
-WORKDIR /app
 
 COPY uv.lock .
 COPY server/pyproject.toml .
@@ -23,12 +21,10 @@ RUN uv export -o requirements.txt --no-emit-workspace && \
 
 ### Build stage ###
 FROM base AS builder
-RUN pip install build hatchling
-WORKDIR /app
 
 COPY server .
 
-RUN python -m build -w -nx -o /wheels
+RUN uv build --wheel -o /wheels
 
 
 ### Run stage ###
