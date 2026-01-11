@@ -4,10 +4,7 @@ version = "0.0.0"
 requires-python = ">=3.12"
 
 [dependency-groups]
-dev = ["mypy", "ruff"]
-
-[tool.mypy]
-cache_dir = "/dev/null"
+dev = ["ruff", "ty", "uv-build"]
 
 [tool.ruff.lint]
 select = ["ALL"]
