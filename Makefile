@@ -28,7 +28,7 @@ docker_serve: docker_build
 
 docker_clean:
 	docker compose -f docker/docker-compose.yaml down
-	docker system prune -f
+	docker system prune -af --volumes
 
 write: init
 	pnpm prettier -w .
@@ -36,7 +36,7 @@ write: init
 
 check: init
 	pnpm prettier -c . && pnpm -r exec eslint --fix
-	uv run ruff check --fix --no-cache && uv run ty check
+	uv run ruff check --fix --no-cache && uv run ty check --error-on-warning
 
 clean:
 	rm -rf .venv/
