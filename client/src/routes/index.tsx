@@ -28,7 +28,7 @@ function Index() {
   }, [error]);
 
   return (
-    <div className="flex flex-col h-screen justify-center items-center gap-4">
+    <div className="flex h-screen flex-col items-center justify-center gap-4">
       <div className="flex gap-4">
         <img src={viteLogo} className="size-8" />
         <ThemeMenu />

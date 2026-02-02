@@ -1,3 +1,5 @@
+name: app
+
 services:
   client:
     image: app-client:0.0.0
