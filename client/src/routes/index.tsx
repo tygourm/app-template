@@ -1,31 +1,25 @@
 import reactLogo from "/react.svg";
 import viteLogo from "/vite.svg";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { greetingsApi } from "@/api/greetings";
 import { ThemeMenu } from "@/components/atoms/theme-menu";
-import { logger } from "@/lib/logs";
-import { greetingsActions, greetingsSelectors } from "@/stores/greetings";
+import { greetingsActions, useGreetings } from "@/stores/greetings";
 
 const Route = createFileRoute("/")({ component: Index });
 
 function Index() {
-  const greeting = greetingsSelectors.useGreeting();
-  const { data, error } = greetingsApi.useGreetings();
+  const greetings = useGreetings();
+  const { data, isPending, error } = useQuery({
+    queryKey: ["greetings"],
+    queryFn: greetingsApi.getGreetings,
+  });
 
   useEffect(() => {
-    if (data) {
-      logger.info(data);
-      greetingsActions.setGreeting(data);
-    }
+    if (data) greetingsActions.setGreetingsState({ greetings: data });
   }, [data]);
-
-  useEffect(() => {
-    if (error) {
-      logger.error(error);
-    }
-  }, [error]);
 
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-4">
@@ -34,7 +28,8 @@ function Index() {
         <ThemeMenu />
         <img src={reactLogo} className="size-8" />
       </div>
-      {greeting && <p>{greeting}</p>}
+      {isPending && <p>Loading...</p>}
+      {greetings && <p>{greetings}</p>}
       {error && <p>{error.message}</p>}
     </div>
   );
