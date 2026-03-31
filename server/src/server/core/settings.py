@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
@@ -19,8 +19,6 @@ class Settings(BaseSettings):
     logs_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
     logs_backup_count: int = 10
     logs_max_bytes: int = 10 * 1024 * 1024
-
-    model_config = SettingsConfigDict()
 
 
 settings = Settings()

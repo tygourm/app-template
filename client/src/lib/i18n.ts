@@ -9,7 +9,6 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    saveMissing: true,
     backend: {
       loadPath: "/i18n/{{lng}}.json",
     },
