@@ -8,4 +8,4 @@ const store = new Store<GreetingsState>({
   greetings: undefined,
 });
 
-export { store, type GreetingsState };
+export { type GreetingsState, store };

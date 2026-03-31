@@ -1,9 +1,9 @@
-import reactLogo from "/react.svg";
-import viteLogo from "/vite.svg";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
+import reactLogo from "/react.svg";
+import viteLogo from "/vite.svg";
 import { greetingsApi } from "@/api/greetings";
 import { ThemeMenu } from "@/components/atoms/theme-menu";
 import { greetingsActions, useGreetings } from "@/stores/greetings";
